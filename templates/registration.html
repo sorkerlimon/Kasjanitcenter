@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0; /* Remove default margin */
+        }
+
+        p {
+            color: #666;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-image: url('success-icon.png'); /* Replace with your image URL */
+            background-size: cover;
+        }
+
+        .icon-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin between icon and text */
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-text">
+            <div class="success-icon"></div>
+            <h1>Registration Successful</h1>
+        </div>
+        <p>Thank you for joining our community! Your registration has been completed successfully.</p>
+        <a href="{% url "course_registration" %}" class="btn">Continue</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 1px;
+            padding: 1px;
+            box-sizing: border-box;
+        }
+
+        /* Body styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff; /* Light gray background color */
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 1%;
+            background-color: #fff; /* White container background color */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Box shadow for container */
+        }
+
+        /* Logo styles */
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo h1 {
+            color: #007bff; /* Blue header text color */
+            font-size: 28px;
+        }
+
+        .logo h4 {
+            font-size: 16px;
+            color: #333; /* Dark text color */
+            margin-top: 5px;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #333; 
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group select {
+            appearance: none; 
+            background: url("arrow-down.png") no-repeat right center; 
+            padding-right: 30px; 
+        }
+
+        .form-group input[type="file"] {
+            border: none;
+            padding: 0;
+        }
+        .button-container {
+        text-align: center;
+        margin-top: 20px;
+        }
+
+        .button-container button {
+        padding: 12px 24px;
+        background-color: #cb52cf;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0px 2px 4px rgba(0, 123, 255, 0.2);
+        }
+
+        .button-container button:hover {
+        background-color: #097548be; /* Darker shade of your original color */
+        box-shadow: 0px 4px 6px rgba(0, 123, 255, 0.3);
+        }
+
+/* You can adjust the colors and shadow values to your liking. */
+
+        .button-container button:hover {
+            background-color: #0056b3; 
+        }
+        .logo-img {
+            max-width: 100px;
+            margin: 10px; 
+            float: left; 
+        }
+        .logo h1,
+        .logo h4 {
+            margin-left: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'download.jpeg' %}" alt="Logo" class="logo-img">
+        <div class="logo">
+            <h1>Kasjan IT Center</h1>
+            <br>
+            <h4>Patikabari Raja-Badsha mor</h4>
+        </div>
+        <br>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Name:</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.image.id_for_label }}">Profile Image:</label>
+                {{ form.image }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.father_name.id_for_label }}">Father's Name:</label>
+                {{ form.father_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.mother_name.id_for_label }}">Mother's Name:</label>
+                {{ form.mother_name }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.national_id.id_for_label }}">National ID Card:</label>
+                {{ form.national_id }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.address.id_for_label }}">Address:</label>
+                {{ form.address }}
+            </div>
+            <div class="form-group">
+                <label for="{{ form.mobile_number.id_for_label }}">Mobile Number:</label>
+                {{ form.mobile_number }}
+            </div>
+            <!-- <div class="form-group">
+                <label for="{{ form.courses.id_for_label }} ">Course Title:</label>
+                {{ form.courses }}
+            </div> -->
+            <div class="form-group">
+                <label for="course_select">Course Title:</label>
+                <select name="course_title" id="course_select">
+                    {% for course in courses %}
+                        <option value="{{ course.title }}">{{ course.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.courses.id_for_label }}">Payment Method</label>
+                {{ form.payment_method }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.bkash_transaction_id.id_for_label }}">Bkash(01706123676) | Nagad(01719826712) Transaction ID:</label>
+                {{ form.bkash_transaction_id }}
+            </div>
+
+            <div class="button-container">
+                <button type="submit" id="submitButton">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
