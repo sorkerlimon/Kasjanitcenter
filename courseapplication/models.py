@@ -21,6 +21,7 @@ class CourseRegistration(models.Model):
     mobile_number = models.CharField(max_length=15)
     courses = models.CharField(max_length=100)
     bkash_transaction_id = models.CharField(max_length=20)
+    advance = models.CharField(max_length=20,null=True)
     image = models.ImageField(upload_to='images/', blank=True,null=True)  # Adjust upload_to to 'images/' based on MEDIA_ROOT
     payment_method = models.CharField(max_length=25, choices=PAYMENT_CHOICES,blank=True,null=True)
     registration_date = models.DateTimeField(default=timezone.now)

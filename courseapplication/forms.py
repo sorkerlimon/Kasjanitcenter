@@ -4,7 +4,7 @@ from .models import CourseRegistration
 class CourseRegistrationForm(forms.ModelForm):
     class Meta:
         model = CourseRegistration
-        fields = ('name', 'father_name', 'mother_name', 'national_id', 'address', 'mobile_number', 'courses', 'bkash_transaction_id', 'image','payment_method')
+        fields = ('name', 'father_name', 'mother_name', 'national_id', 'address', 'mobile_number', 'courses', 'bkash_transaction_id', 'image','payment_method','advance')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

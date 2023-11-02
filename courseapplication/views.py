@@ -37,6 +37,7 @@ def course_registration(request):
             mobile_number=request.POST.get('mobile_number'),
             bkash_transaction_id=request.POST.get('bkash_transaction_id'),
             payment_method=request.POST.get('payment_method'),
+            advance=request.POST.get('advance'),
             image=request.FILES.get('image'),
         )
         
